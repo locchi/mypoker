@@ -1,1 +1,173 @@
-{}
+{
+  "auth": {
+    "AppAuth": {
+      "customAuth": false,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "AppAuthPostAuthentication",
+          "triggerProvider": "Cognito"
+        },
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "AppAuthPostConfirmation",
+          "triggerProvider": "Cognito"
+        },
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "AppAuthPreAuthentication",
+          "triggerProvider": "Cognito"
+        },
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "AppAuthPreSignup",
+          "triggerProvider": "Cognito"
+        }
+      ],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [
+            "REQUIRES_LOWERCASE",
+            "REQUIRES_UPPERCASE",
+            "REQUIRES_NUMBERS"
+          ],
+          "passwordPolicyMinLength": "8"
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
+    }
+  },
+  "function": {
+    "AppAuthPostAuthentication": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "AppAuthPostConfirmation": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "AppAuthPreAuthentication": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "AppAuthPreSignup": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_AppAuthPostAuthentication_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "AppAuthPostAuthentication"
+        }
+      ]
+    },
+    "AMPLIFY_function_AppAuthPostAuthentication_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "AppAuthPostAuthentication"
+        }
+      ]
+    },
+    "AMPLIFY_function_AppAuthPostConfirmation_GROUP": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "AppAuthPostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_AppAuthPostConfirmation_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "AppAuthPostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_AppAuthPostConfirmation_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "AppAuthPostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_AppAuthPreAuthentication_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "AppAuthPreAuthentication"
+        }
+      ]
+    },
+    "AMPLIFY_function_AppAuthPreAuthentication_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "AppAuthPreAuthentication"
+        }
+      ]
+    },
+    "AMPLIFY_function_AppAuthPreSignup_DOMAINALLOWLIST": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "AppAuthPreSignup"
+        }
+      ]
+    },
+    "AMPLIFY_function_AppAuthPreSignup_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "AppAuthPreSignup"
+        }
+      ]
+    },
+    "AMPLIFY_function_AppAuthPreSignup_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "AppAuthPreSignup"
+        }
+      ]
+    }
+  }
+}
